@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/container"
+            >
+
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/viewpager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+
+            <RadioGroup
+                android:id="@+id/button_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_horizontal"
+                android:layout_above="@+id/lin1"
+                android:layout_marginBottom="40dp"
+                >
+
+                <RadioButton
+                    android:id="@+id/radio1"
+                    android:gravity="center"
+                    android:layout_width="@dimen/indicatorwidth"
+                    android:layout_height="wrap_content"
+                    android:checked="true"
+                    android:button="@android:color/transparent"
+                    android:background="@drawable/myselector"
+
+                    />
+
+                <RadioButton
+                    android:id="@+id/radio2"
+                    android:gravity="center"
+                    android:layout_width="@dimen/indicatorwidth"
+                    android:layout_height="wrap_content"
+                    android:button="@android:color/transparent"
+                    android:background="@drawable/myselector"
+
+                    />
+
+                <RadioButton
+                    android:id="@+id/radio3"
+                    android:gravity="center"
+                    android:layout_width="@dimen/indicatorwidth"
+                    android:layout_height="wrap_content"
+                    android:button="@android:color/transparent"
+                    android:background="@drawable/myselector"/>
+
+                <RadioButton
+                    android:id="@+id/radio4"
+                    android:gravity="center"
+                    android:layout_width="@dimen/indicatorwidth"
+                    android:layout_height="wrap_content"
+                    android:button="@android:color/transparent"
+                    android:background="@drawable/myselector" />
+
+            </RadioGroup>
+
+
+            <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_alignParentBottom="true"
+            android:visibility="visible"
+            android:background="@color/colorPrimary"
+            android:id="@+id/lin1"
+            >
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/textviewheight"
+                android:layout_weight="1"
+                android:text="Login"
+                android:gravity="center"
+                android:background="@color/colorWhite"
+                android:textColor="@color/colorPrimary"
+                android:textSize="@dimen/textsize"
+                android:layout_marginTop="2dp"
+                android:fontFamily="@font/regular"
+                android:id="@+id/Ilogin"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/textviewheight"
+                android:layout_weight="1"
+                android:background="@color/colorPrimary"
+                android:text="Signup"
+                android:gravity="center"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/textsize"
+                android:fontFamily="@font/regular"
+                android:id="@+id/Isignup"
+                />
+
+        </LinearLayout>
+
+        </RelativeLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/signuplayout"
+        android:visibility="visible"
+        android:layout_below="@+id/l1"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Recover Password"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:textColor="@color/colorPrimary"
+            android:fontFamily="@font/nunito_extrabold"
+            android:id="@+id/Lcontemail"
+            android:layout_alignParentLeft="true"
+            android:textSize="@dimen/textsizehead"
+            />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:src="@drawable/dot"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="10dp"
+            android:id="@+id/dot"
+            />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="10dp"
+            android:layout_below="@+id/dot"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Enter your registered Phone Number/Email Id below to receive OTP"
+                android:layout_marginLeft="10dp"
+                android:fontFamily="@font/regular"
+                android:id="@+id/header"
+                android:textColor="@color/colorblack"
+                android:layout_marginTop="10dp"
+                android:textSize="@dimen/textsize"
+                android:layout_marginRight="10dp"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Phone number/Email Id"
+                android:layout_marginLeft="20dp"
+                android:fontFamily="@font/regular"
+                android:id="@+id/sphint"
+                android:layout_marginTop="40dp"
+                />
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                >
+
+
+                <EditText
+                    android:id="@+id/fmobile_no"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Enter your Phone Number/Email Id"
+                    android:inputType="text"
+                    android:textStyle="bold"
+                    android:textSize="18sp"
+                    android:paddingBottom="8dp"
+                    android:paddingStart="15dp"
+                    android:paddingEnd="8dp"
+                    android:paddingTop="8dp"
+                    android:fontFamily="@font/regular"
+                    android:textColor="@color/colorblack"
+                    android:background="@drawable/editbg"
+                    >
+                    <requestFocus />
+                </EditText>
+            </FrameLayout>
+
+
+            <Button
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:text="SEND OTP"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:elevation="10dp"
+                android:id="@+id/fotp"
+                android:gravity="center"
+                android:fontFamily="@font/nunito_extrabold"
+                android:background="@drawable/buttonbg"
+                android:textColor="@color/colorWhite"
+                />
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:background="@null"
+            android:src="@drawable/lgirl"
+            android:layout_marginBottom="15dp"
+            />
+
+    </RelativeLayout>
+
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

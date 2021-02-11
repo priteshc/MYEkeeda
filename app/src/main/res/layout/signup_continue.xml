@@ -1,0 +1,419 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:src="@drawable/dot"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="10dp"
+            android:id="@+id/dot"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="We've sent an OTP to your register mobile number"
+            android:layout_marginLeft="10dp"
+            android:fontFamily="@font/regular"
+            android:id="@+id/header"
+            android:layout_below="@+id/dot"
+            android:textColor="@color/colorblack"
+            android:layout_marginTop="40dp"
+            android:textSize="@dimen/textsize"
+            android:layout_marginRight="10dp"
+            />
+
+ <ScrollView
+     android:layout_width="match_parent"
+     android:layout_height="match_parent"
+     android:layout_below="@+id/header"
+     >
+
+ <RelativeLayout
+     android:layout_width="match_parent"
+    android:layout_height="match_parent"
+     android:id="@+id/loginlayout"
+     android:visibility="visible"
+     android:layout_marginTop="10dp"
+     >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="15dp"
+        android:id="@+id/lgopho"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Phone number*"
+            android:layout_marginLeft="20dp"
+            android:fontFamily="@font/regular"
+            android:id="@+id/schintpho"
+            />
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        >
+
+        <TextView
+            android:id="@+id/prefix"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:paddingStart="8dp"
+            android:textSize="18sp"
+            android:fontFamily="@font/regular"
+            android:text="+91"
+            android:textColor="@color/colorblack"
+            />
+
+        <EditText
+            android:id="@+id/scmobile_no"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Please enter your phone number"
+            android:inputType="phone"
+            android:maxLength="10"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:paddingBottom="8dp"
+            android:paddingStart="48dp"
+            android:paddingEnd="8dp"
+            android:paddingTop="8dp"
+            android:textColor="@color/colorblack"
+            android:background="@drawable/editbg"
+            android:fontFamily="@font/regular"
+            android:drawableRight="@drawable/edit_pencil"
+            >
+            <requestFocus />
+        </EditText>
+    </FrameLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Invalid Phone number*"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="3dp"
+            android:fontFamily="@font/regular"
+            android:textColor="@color/colorred"
+            android:id="@+id/scphoerror"
+            android:visibility="gone"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="First Name*"
+            android:layout_marginLeft="20dp"
+            android:fontFamily="@font/regular"
+            android:id="@+id/schintfname"
+            android:layout_marginTop="10dp"
+            />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter your First Name"
+            android:inputType="text"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:paddingBottom="8dp"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"
+            android:paddingTop="8dp"
+            android:layout_marginTop="8dp"
+            android:textColor="@color/colorblack"
+            android:background="@drawable/editbg"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:fontFamily="@font/regular"
+            android:id="@+id/sceditfanme"
+            />
+        <requestFocus />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Invalid Name*"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="3dp"
+            android:fontFamily="@font/regular"
+            android:textColor="@color/colorred"
+            android:visibility="gone"
+            android:id="@+id/scerrorfname"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Last Name*"
+            android:layout_marginLeft="20dp"
+            android:fontFamily="@font/regular"
+            android:id="@+id/schintlanme"
+            android:layout_marginTop="10dp"
+
+            />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter your Last Name"
+            android:inputType="text"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:paddingBottom="8dp"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"
+            android:paddingTop="8dp"
+            android:layout_marginTop="8dp"
+            android:textColor="@color/colorblack"
+            android:background="@drawable/editbg"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:fontFamily="@font/regular"
+            android:id="@+id/sceditlanme"
+            />
+        <requestFocus />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Invalid Last Name*"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="3dp"
+            android:fontFamily="@font/regular"
+            android:textColor="@color/colorred"
+            android:visibility="gone"
+            android:id="@+id/scerrorlname"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Email ID*"
+            android:layout_marginLeft="20dp"
+            android:fontFamily="@font/regular"
+            android:id="@+id/schintemailname"
+            android:layout_marginTop="10dp"
+            />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter your Email ID"
+            android:inputType="textEmailAddress"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:paddingBottom="8dp"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"
+            android:paddingTop="8dp"
+            android:layout_marginTop="8dp"
+            android:textColor="@color/colorblack"
+            android:background="@drawable/editbg"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:fontFamily="@font/regular"
+            android:id="@+id/sceditemilanme"
+            />
+        <requestFocus />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Invalid Email*"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="3dp"
+            android:fontFamily="@font/regular"
+            android:textColor="@color/colorred"
+            android:visibility="gone"
+           android:id="@+id/scerroremail"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Password*"
+            android:layout_marginLeft="20dp"
+            android:fontFamily="@font/regular"
+            android:id="@+id/schintpass"
+            android:layout_marginTop="10dp"
+            />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter your Password"
+            android:inputType="textPassword"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:paddingBottom="8dp"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"
+            android:paddingTop="8dp"
+            android:layout_marginTop="8dp"
+            android:textColor="@color/colorblack"
+            android:background="@drawable/editbg"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:fontFamily="@font/regular"
+            android:id="@+id/sceditpass"
+            />
+        <requestFocus />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Invalid Password*"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="3dp"
+            android:fontFamily="@font/regular"
+            android:textColor="@color/colorred"
+            android:visibility="gone"
+            android:id="@+id/scerrorpass"
+
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="OTP*"
+            android:layout_marginLeft="20dp"
+            android:fontFamily="@font/regular"
+            android:id="@+id/schintotp"
+            android:layout_marginTop="10dp"
+            />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter OTP"
+            android:inputType="number"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:paddingBottom="8dp"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"
+            android:paddingTop="8dp"
+            android:layout_marginTop="8dp"
+            android:textColor="@color/colorblack"
+            android:background="@drawable/editbg"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:fontFamily="@font/regular"
+            android:id="@+id/sceditotp"
+            />
+        <requestFocus />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Invalid OTP*"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="3dp"
+            android:fontFamily="@font/regular"
+            android:textColor="@color/colorred"
+            android:visibility="gone"
+            android:id="@+id/scerrorotp"
+
+            />
+
+        <Button
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="NEXT"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:elevation="10dp"
+            android:id="@+id/scnext"
+            android:gravity="center"
+            android:background="@drawable/buttonbg"
+            android:fontFamily="@font/nunito_extrabold"
+            android:textColor="@color/colorWhite"
+            />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/colorblack"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            />
+
+         <LinearLayout
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:orientation="horizontal"
+             >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="RESEND IN"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
+            android:textColor="@color/colorPrimary"
+            android:fontFamily="@font/nunito_extrabold"
+            android:id="@+id/resend"
+            />
+             <TextView
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:text="60"
+                 android:layout_marginLeft="5dp"
+                 android:layout_marginTop="10dp"
+                 android:textColor="@color/colorPrimary"
+                 android:fontFamily="@font/nunito_extrabold"
+                 android:id="@+id/numtext"
+                 android:textSize="@dimen/textsize"
+                 />
+         </LinearLayout>
+    </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:background="@null"
+                android:src="@drawable/boy2"
+                android:layout_marginBottom="15dp"
+                android:layout_marginTop="20dp"
+                android:layout_centerInParent="true"
+                />
+
+        </RelativeLayout>
+    </LinearLayout>
+
+</RelativeLayout>
+ </ScrollView>
+
+    </RelativeLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
