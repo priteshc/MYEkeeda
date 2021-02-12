@@ -16,6 +16,7 @@ import student.ekeeda.com.ekeeda_student.R
 import student.ekeeda.com.ekeeda_student.forgotpassword.ForgotPassword
 import student.ekeeda.com.ekeeda_student.networking.Status
 import student.ekeeda.com.ekeeda_student.util.PrefManager
+import student.ekeeda.com.ekeeda_student.util.Utils
 import student.ekeeda.com.ekeeda_student.util.ValidationUtils
 import student.ekeeda.com.ekeeda_student.viewmodel.LoginViewModel
 
@@ -26,7 +27,9 @@ class Login : AppCompatActivity() {
     lateinit var viewModel : LoginViewModel
     lateinit var dialog : CustomDialog
     lateinit var mypref : PrefManager
-
+    var ip : String? = null
+    var mac : String? = null
+    var mac1 : String? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -38,6 +41,19 @@ class Login : AppCompatActivity() {
         setupViewModel()
         setupObserver()
         mypref = PrefManager(this)
+
+        ip = Utils.getIPAddress(true)
+        mac = Utils.getMACAddress("wlan0")
+        mac1 = Utils.getMACAddress("eth0")
+
+        mypref.userip = ip
+        if(!mac.equals("")){
+            mypref.usermac = mac
+        }
+        else{
+            mypref.usermac = mac1
+
+        }
         dialog = CustomDialog(this)
         validation = ValidationUtils(this)
         myview()

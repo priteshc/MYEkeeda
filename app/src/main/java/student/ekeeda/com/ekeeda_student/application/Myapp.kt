@@ -35,7 +35,7 @@ class Myapp : Application(),LifeCycleDelegate {
         instance = this
         mypref = PrefManager(this)
 
-        ip = Utils.getIPAddress(true)
+       /* ip = Utils.getIPAddress(true)
         mac = Utils.getMACAddress("wlan0")
         mac1 = Utils.getMACAddress("eth0")
 
@@ -46,7 +46,7 @@ class Myapp : Application(),LifeCycleDelegate {
         else{
             mypref.usermac = mac1
 
-        }
+        }*/
 
         jobScheduler = getSystemService(Context.JOB_SCHEDULER_SERVICE) as JobScheduler
         jobScheduler1 = getSystemService(Context.JOB_SCHEDULER_SERVICE) as JobScheduler
