@@ -1,5 +1,9 @@
 package student.ekeeda.com.ekeeda_student.util;
 
+import android.content.Context;
+import android.os.AsyncTask;
+import android.util.Log;
+
 import java.io.*;
 import java.net.*;
 import java.util.*;
@@ -7,11 +11,22 @@ import java.util.*;
 
 public class Utils {
 
+    Context context;
+    PrefManager prefManager;
+    public Utils(Context context) {
+
+        this.context = context;
+        prefManager = new PrefManager(context);
+    }
+
     /**
      * Convert byte array to hex string
      * @param bytes toConvert
      * @return hexValue
      */
+
+
+
     public static String bytesToHex(byte[] bytes) {
         StringBuilder sbuf = new StringBuilder();
         for(int idx=0; idx < bytes.length; idx++) {
@@ -95,6 +110,8 @@ public class Utils {
      * @return  address or empty string
      */
     public static String getIPAddress(boolean useIPv4) {
+
+
         try {
             List<NetworkInterface> interfaces = Collections.list(NetworkInterface.getNetworkInterfaces());
             for (NetworkInterface intf : interfaces) {
@@ -120,5 +137,8 @@ public class Utils {
         } catch (Exception ignored) { } // for now eat exceptions
         return "";
     }
+
+
+
 
 }

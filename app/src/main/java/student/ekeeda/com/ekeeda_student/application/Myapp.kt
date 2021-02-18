@@ -35,18 +35,18 @@ class Myapp : Application(),LifeCycleDelegate {
         instance = this
         mypref = PrefManager(this)
 
-       /* ip = Utils.getIPAddress(true)
+        ip = Utils.getIPAddress(true)
         mac = Utils.getMACAddress("wlan0")
         mac1 = Utils.getMACAddress("eth0")
 
-        mypref.userip = ip
+     //   mypref.userip = ip
         if(!mac.equals("")){
             mypref.usermac = mac
         }
         else{
             mypref.usermac = mac1
 
-        }*/
+        }
 
         jobScheduler = getSystemService(Context.JOB_SCHEDULER_SERVICE) as JobScheduler
         jobScheduler1 = getSystemService(Context.JOB_SCHEDULER_SERVICE) as JobScheduler
@@ -84,7 +84,7 @@ class Myapp : Application(),LifeCycleDelegate {
         if (jobScheduler != null) {
             jobScheduler.cancel(1000)
         }
-        Log.d("LOG","LOGIN")
+      //  Log.d("LOG","LOGIN")
 
         jobScheduler.schedule(
             JobInfo.Builder(

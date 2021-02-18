@@ -46,7 +46,7 @@ class Login : AppCompatActivity() {
         mac = Utils.getMACAddress("wlan0")
         mac1 = Utils.getMACAddress("eth0")
 
-        mypref.userip = ip
+     //   mypref.userip = ip
         if(!mac.equals("")){
             mypref.usermac = mac
         }
@@ -167,7 +167,9 @@ class Login : AppCompatActivity() {
                 mypref.username = Lmobile_no.text.toString()
                 mypref.userpassword = Lpassword.text.toString()
 
-                viewModel.Login(Lmobile_no.text.toString(),Lpassword.text.toString())
+                viewModel.Login(Lmobile_no.text.toString(),Lpassword.text.toString(),
+                    mypref.userip!!, mypref.usermac!!
+                )
 
             } else if (!validation.isValidMobile(Lmobile_no.text.toString()) && Lpassword.text.isEmpty()) {
 
@@ -203,7 +205,7 @@ class Login : AppCompatActivity() {
                 mypref.username = Eemail_id.text.toString()
                 mypref.userpassword = Epassword.text.toString()
 
-                viewModel.Login(Eemail_id.text.toString(),Epassword.text.toString())
+                viewModel.Login(Eemail_id.text.toString(),Epassword.text.toString(),mypref.userip!!, mypref.usermac!!)
 
             } else if (!validation.isValidEmail(Eemail_id.text.toString()) && Epassword.text.isEmpty()) {
 

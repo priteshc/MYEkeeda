@@ -18,11 +18,11 @@ class LoginViewModel : ViewModel() {
     var optmodel : MutableLiveData<Resource<OtpDataModel>> = MutableLiveData()
 
 
-    fun Login(username : String,password : String){
+    fun Login(username : String,password : String, ip: String,mac : String){
 
         loginmodel.postValue(Resource.loading(null))
 
-        val call: Call<LoginDataModel> = RetrofitBuilder.apiService.Login(username,password,"","","")
+        val call: Call<LoginDataModel> = RetrofitBuilder.apiService.Login(username,password,ip,mac,"Android")
         call.enqueue(object : Callback<LoginDataModel> {
 
             override fun onResponse(call: Call<LoginDataModel>?, response: Response<LoginDataModel>?) {
