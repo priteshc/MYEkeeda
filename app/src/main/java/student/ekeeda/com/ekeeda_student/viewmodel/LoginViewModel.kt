@@ -9,6 +9,7 @@ import retrofit2.Callback
 import retrofit2.Response
 import student.ekeeda.com.ekeeda_student.model.LoginDataModel
 import student.ekeeda.com.ekeeda_student.model.OtpDataModel
+import student.ekeeda.com.ekeeda_student.model.StateModel
 import student.ekeeda.com.ekeeda_student.networking.Resource
 import student.ekeeda.com.ekeeda_student.networking.RetrofitBuilder
 
@@ -16,6 +17,7 @@ class LoginViewModel : ViewModel() {
 
      var loginmodel : MutableLiveData<Resource<LoginDataModel>> = MutableLiveData()
     var optmodel : MutableLiveData<Resource<OtpDataModel>> = MutableLiveData()
+    var stateModel : MutableLiveData<Resource<StateModel>> = MutableLiveData()
 
 
     fun Login(username : String,password : String, ip: String,mac : String){
@@ -65,11 +67,40 @@ class LoginViewModel : ViewModel() {
     }
 
 
+    fun GetState(){
+
+        stateModel.postValue(Resource.loading(null))
+
+        val call: Call<StateModel> = RetrofitBuilder.apiService.getState("767")
+        call.enqueue(object : Callback<StateModel> {
+
+            override fun onResponse(call: Call<StateModel>?, response: Response<StateModel>?) {
+
+                stateModel.postValue(Resource.success(response?.body()) as Resource<StateModel>?)
+
+            }
+
+            override fun onFailure(call: Call<StateModel>?, t: Throwable?) {
+                /*progerssProgressDialog.dismiss()
+                println("error")*/
+                stateModel.postValue(Resource.error(null,"something went wrong"))
+            }
+
+        })
+
+    }
+
+
+
     fun getUsers(): LiveData<Resource<LoginDataModel>> {
         return loginmodel
     }
 
     fun getOtp(): LiveData<Resource<OtpDataModel>> {
         return optmodel
+    }
+
+    fun getstate(): LiveData<Resource<StateModel>> {
+        return stateModel
     }
 }

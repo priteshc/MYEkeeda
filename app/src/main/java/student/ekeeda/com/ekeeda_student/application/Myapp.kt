@@ -23,8 +23,9 @@ class Myapp : Application(),LifeCycleDelegate {
     lateinit var appLifecycleHandler: AppLifecycleHandler
 
     companion object{
-        var BASE_URL:String="https://testapi.ekeeda.com/api/Auth/"
-       // var BASE_URL:String="https://testapi.ekeeda.com/api/Auth/"
+      //  var BASE_URL:String="https://testapi.ekeeda.com/api/Auth/"
+        var BASE_URL:String="https://api.ekeeda.com/api/Auth/"
+     // var BASE_URL:String="https://testapi.ekeeda.com/api/"
 
         lateinit var instance: Myapp
            // private set

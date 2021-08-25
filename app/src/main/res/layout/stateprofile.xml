@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:clipToPadding="false"
+    >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/commonbackground"
+
+        >
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            app:cardCornerRadius="1dp"
+            app:cardElevation="3dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="1dp"
+            android:background="@color/white"
+            app:contentPadding="3dp"
+            >
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/li"
+                >
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/igmg"
+                    android:layout_marginLeft="15dp"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/arrow_left"
+                    />
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="search state"
+                    android:id="@+id/clg"
+                    android:layout_toRightOf="@+id/igmg"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:maxLines="1"
+                    android:singleLine="true"
+                    />
+
+            </RelativeLayout>
+
+
+        </androidx.cardview.widget.CardView>
+
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card_view1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            app:cardCornerRadius="1dp"
+            app:cardElevation="3dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="1dp"
+            android:background="@color/white"
+            app:contentPadding="3dp"
+            android:layout_below="@+id/card_view"
+            >
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:visibility="visible"
+                android:id="@+id/list"
+                >
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:visibility="visible"
+                    android:id="@+id/rec1"
+                    />
+
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/notfound"
+                android:visibility="gone"
+                >
+
+                <pl.droidsonroids.gif.GifImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:src="@drawable/empty"
+                    android:id="@+id/gf"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="30dp"
+                    />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Nevermind !"
+                    android:id="@+id/t1"
+                    android:gravity="center"
+                    android:textColor="@color/colorPrimary"
+                    android:textStyle="bold"
+                    android:layout_below="@+id/gf"
+                    android:textSize="18dp"
+                    />
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Your state name is not in our list"
+                    android:layout_below="@+id/t1"
+                    android:gravity="center"
+                    android:textColor="@color/colorPrimary"
+                    android:textStyle="bold"
+                    android:id="@+id/t2"
+                    />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:layout_below="@+id/t2"
+                    android:text="Click to continue"
+                    android:background="@drawable/buttonshp22"
+                    android:textColor="@color/white"
+                    android:visibility="visible"
+                    android:layout_marginTop="20dp"
+                    android:layout_centerHorizontal="true"
+                    android:padding="5dp"
+                    android:textSize="16dp"
+                    android:textAllCaps="false"
+                    android:id="@+id/continue1"
+                    />
+
+
+            </RelativeLayout>
+
+
+
+
+        </androidx.cardview.widget.CardView>
+
+    </RelativeLayout>
+
+    <include layout="@layout/profile_bottom_sheet1" />
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

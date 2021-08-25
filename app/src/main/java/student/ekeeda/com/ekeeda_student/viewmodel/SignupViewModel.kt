@@ -19,11 +19,11 @@ class SignupViewModel : ViewModel() {
 
 
 
-    fun Signup(mobile : String,email : String,fname:String,lname:String,password:String,platform:String,otp:String){
+    fun Signup(mobile : String,email : String,fname:String,lname:String,password:String,platform:String,otp:String,statename:String,statid:Int){
 
         signupmodel.postValue(Resource.loading(null))
 
-        val call: Call<LoginDataModel> = RetrofitBuilder.apiService.SignUp(mobile,email,fname, lname,password,platform,otp)
+        val call: Call<LoginDataModel> = RetrofitBuilder.apiService.SignUp(mobile,email,fname, lname,password,platform,otp,statename,statid)
         call.enqueue(object : Callback<LoginDataModel> {
 
             override fun onResponse(call: Call<LoginDataModel>?, response: Response<LoginDataModel>?) {

@@ -7,6 +7,7 @@ import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 import student.ekeeda.com.ekeeda_student.application.Myapp;
 
+
 /**
  * Created by pritesh on 3/27/2017.
  */
@@ -22,7 +23,7 @@ public class RetrofitBuild {
         interceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
         OkHttpClient client = new OkHttpClient.Builder().addInterceptor(interceptor).build();
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("https://testapi.ekeeda.com/api/Auth/")
+                .baseUrl("https://api.ekeeda.com/api/Auth/")
                 .client(client)
                 .addConverterFactory(GsonConverterFactory.create())
                 .addCallAdapterFactory(RxJavaCallAdapterFactory.create())

@@ -1,0 +1,71 @@
+{
+  "project_info": {
+    "project_number": "555026722965",
+    "firebase_url": "https://ekeedastudent.firebaseio.com",
+    "project_id": "ekeedastudent",
+    "storage_bucket": "ekeedastudent.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:555026722965:android:d1e8efae612f1f92",
+        "android_client_info": {
+          "package_name": "student.ekeeda.com.ekeeda_student"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "555026722965-1b0at5khc9gd715rd0t9ppr46rfg2eti.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "student.ekeeda.com.ekeeda_student",
+            "certificate_hash": "fcab69d4aba13372232ffdd74067b605bbbd1419"
+          }
+        },
+        {
+          "client_id": "555026722965-dqdc3olh88bp2et1roah7bsbpojm4far.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "student.ekeeda.com.ekeeda_student",
+            "certificate_hash": "1d1e735fc3bd2c0fa6f4ea4bdec94ac9fd2c36ed"
+          }
+        },
+        {
+          "client_id": "555026722965-v3t9n8ssps1vvuktm07qpg29bu7s6u2n.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "student.ekeeda.com.ekeeda_student",
+            "certificate_hash": "d77bbae0ab76d3313fdb517a044f0c84ed825fc5"
+          }
+        },
+        {
+          "client_id": "555026722965-ukjnnjpikcdg38rnrml9rh1epu01kv4u.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB2yr9rSq1zN0Bx2-FODsXuIpZfuLbkVfw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "555026722965-ukjnnjpikcdg38rnrml9rh1epu01kv4u.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "555026722965-p43bd9ussajjsknaf4mk30crsm3r4qha.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.Ekeeda.edu"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:id="@+id/bottom_sheet1"
+    app:behavior_hideable="true"
+    app:behavior_peekHeight="0dp"
+    android:padding="20dp"
+    android:background="@color/commonbackground"
+    app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        >
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/textView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Please add your state"
+            android:textSize="16sp"
+            android:textColor="@color/black"
+            android:visibility="visible"
+            android:padding="5dp"
+            android:gravity="center_horizontal|center_vertical"
+            android:layout_marginRight="5dp"
+            />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/close"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
+            android:id="@+id/close"
+            />
+
+    </RelativeLayout>
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/eclgname"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_marginTop="20dp"
+        android:hint="State name"
+        app:boxBackgroundColor="@color/commonbackground"
+        app:boxStrokeColor="@color/cb_grey"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        >
+
+        <EditText
+            style="@style/EditText"
+            android:inputType="text"
+            android:id="@+id/statename"
+            />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.skydoves.elasticviews.ElasticButton
+        android:layout_width="150dp"
+        android:layout_height="40dp"
+        android:text="Save"
+        android:textColor="@android:color/white"
+        android:textSize="16sp"
+        app:button_duration="250"
+        app:button_scale="0.67"
+        android:id="@+id/elasticbutton1"
+        android:layout_marginTop="30dp"
+        android:background="@color/colorPrimary"
+        android:layout_gravity="center"
+        android:layout_marginBottom="20dp"
+        />
+</LinearLayout>

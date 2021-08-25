@@ -9,10 +9,8 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
-import kotlinx.android.synthetic.main.loginsignup.*
 import kotlinx.android.synthetic.main.signup_continue.*
 import student.ekeeda.com.ekeeda_student.HomePage.WebsiteMyview
-import student.ekeeda.com.ekeeda_student.HomePage.WebsiteView
 import student.ekeeda.com.ekeeda_student.R
 import student.ekeeda.com.ekeeda_student.customDialog.CustomDialog
 import student.ekeeda.com.ekeeda_student.networking.Status
@@ -31,6 +29,10 @@ class SignupContinue : AppCompatActivity() {
     lateinit var viewModel1 : LoginViewModel
 
     var counter = 60
+    val REQUEST_CODE = 1
+    var stateid = 0
+    var statename : String? = null
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -61,7 +63,7 @@ class SignupContinue : AppCompatActivity() {
         scnext.setOnClickListener {
 
             if (validation.isValidMobile(scmobile_no.text.toString()) && !sceditfanme.text.isEmpty() && !sceditlanme.text.isEmpty() &&
-                validation.isValidEmail(sceditemilanme.text.toString()) && !sceditpass.text.isEmpty() && !sceditotp.text.isEmpty()
+                validation.isValidEmail(sceditemilanme.text.toString()) && !sceditpass.text.isEmpty() && !sceditotp.text.isEmpty()&& !state.text.equals("Select State")
             ) {
 
 
@@ -82,7 +84,7 @@ class SignupContinue : AppCompatActivity() {
                 mypref.userpassword = sceditpass.text.toString()
 
                 viewModel.Signup(scmobile_no.text.toString(),sceditemilanme.text.toString(),sceditfanme.text.toString(),
-                    sceditlanme.text.toString(),sceditpass.text.toString(),"Android",sceditotp.text.toString())
+                    sceditlanme.text.toString(),sceditpass.text.toString(),"Android",sceditotp.text.toString(),state.text.toString(),stateid)
             }
             else {
 
@@ -150,6 +152,11 @@ class SignupContinue : AppCompatActivity() {
                 schintpho.setTextColor(Color.parseColor("#F31F1F"))
                 scphoerror.visibility = View.VISIBLE
             }
+        }
+
+        state.setOnClickListener {
+            val intent = Intent(this, State_Screen::class.java)
+            startActivityForResult(intent, REQUEST_CODE);
         }
     }
 
@@ -230,6 +237,28 @@ class SignupContinue : AppCompatActivity() {
             }
 
         })
+
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+
+        if (requestCode == REQUEST_CODE) {
+            if(data != null) {
+
+                stateid = data!!.getIntExtra("stateid", 0)
+                state.text = data!!.getStringExtra("statename")
+            }
+        }
+
+        if (requestCode == 2) {
+            if(data != null) {
+
+                //  stateid = data!!.getIntExtra("statename", 0)
+                state.text = data!!.getStringExtra("statename")
+                stateid = 0
+            }
+        }
 
     }
 

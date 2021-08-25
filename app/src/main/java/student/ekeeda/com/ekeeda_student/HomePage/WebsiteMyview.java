@@ -51,7 +51,7 @@ public class WebsiteMyview extends AppCompatActivity {
         webView.getSettings().setAppCacheEnabled(true);
       //  webView.getSettings().setBuiltInZoomControls(true);
         webView.getSettings().setSaveFormData(true);
-        webView.loadUrl("https://test.ekeeda.com/mobile/index?key="+mypref.getUserid()+"&id="+mypref.getUserhistoryid());
+        webView.loadUrl("https://ekeeda.com/mobile/index?key="+mypref.getUserid()+"&id="+mypref.getUserhistoryid());
         dialog.showDialog();
     }
 

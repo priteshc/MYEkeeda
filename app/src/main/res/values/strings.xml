@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Ekeeda</string>
+    <string name="facebook_app_id">1095834183826743</string>
+    <string name="fb_login_protocol_scheme">fb[1095834183826743]</string>
+    <string name="ACCOUNT_KIT_CLIENT_TOKEN">bf542fadd3be7283e78b238c061502fb</string>
+    <string name="fb_login_protocol_scheme1">akbf542fadd3be7283e78b238c061502fb</string>
+
 </resources>
