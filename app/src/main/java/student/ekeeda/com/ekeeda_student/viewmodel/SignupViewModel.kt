@@ -19,11 +19,13 @@ class SignupViewModel : ViewModel() {
 
 
 
-    fun Signup(mobile : String,email : String,fname:String,lname:String,password:String,platform:String,otp:String,statename:String,statid:Int){
+    fun Signup(mobile : String,otp:String,fname:String,lname:String,email : String,password:String,platform:String,degree:String,branch:String,
+    passoutyr: String,colgname:String,hrarbat:String,visitekeeda:String,carrerintrest:String){
 
         signupmodel.postValue(Resource.loading(null))
 
-        val call: Call<LoginDataModel> = RetrofitBuilder.apiService.SignUp(mobile,email,fname, lname,password,platform,otp,statename,statid)
+        val call: Call<LoginDataModel> = RetrofitBuilder.apiService1.SignUp(mobile,email,fname, lname,password,platform,otp,colgname,hrarbat,
+        passoutyr,visitekeeda,carrerintrest,degree,branch)
         call.enqueue(object : Callback<LoginDataModel> {
 
             override fun onResponse(call: Call<LoginDataModel>?, response: Response<LoginDataModel>?) {
@@ -47,7 +49,7 @@ class SignupViewModel : ViewModel() {
 
         forgetmodel.postValue(Resource.loading(null))
 
-        val call: Call<ForgetDataModel> = RetrofitBuilder.apiService.Forget(mobile,email,password,otp)
+        val call: Call<ForgetDataModel> = RetrofitBuilder.apiService1.Forget(mobile,email,password,otp)
         call.enqueue(object : Callback<ForgetDataModel> {
 
             override fun onResponse(call: Call<ForgetDataModel>?, response: Response<ForgetDataModel>?) {
@@ -67,6 +69,7 @@ class SignupViewModel : ViewModel() {
         })
 
     }
+
 
 
 

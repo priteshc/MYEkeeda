@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/item_custom_layout"
+    android:layout_width="wrap_content"
+    android:layout_height="40dp"
+    android:layout_margin="5dp"
+    android:layout_gravity="center"
+    android:background="@drawable/bg_unselect_language">
+
+    <!--<ImageView
+        android:layout_width="18dp"
+        android:layout_height="18dp"
+        android:id="@+id/icn"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="10dp"
+        />-->
+
+    <TextView
+        android:id="@+id/txt_title"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:textSize="12sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:layout_centerVertical="true"
+        android:padding="5dp"
+        android:text="Modern Cooking"/>
+
+</RelativeLayout>

@@ -24,8 +24,10 @@ class Myapp : Application(),LifeCycleDelegate {
 
     companion object{
       //  var BASE_URL:String="https://testapi.ekeeda.com/api/Auth/"
-        var BASE_URL:String="https://api.ekeeda.com/api/Auth/"
+      //  var BASE_URL:String="https://api.ekeeda.com/api/Auth/"
      // var BASE_URL:String="https://testapi.ekeeda.com/api/"
+        var BASE_URL:String= "https://betaapi.ekeeda.com/api/v2/"
+        var BASE_URL1:String= "https://betaapi.ekeeda.com/api/"
 
         lateinit var instance: Myapp
            // private set
@@ -68,7 +70,7 @@ class Myapp : Application(),LifeCycleDelegate {
         }
 
         Log.d("LOG","LOGOUT")
-        jobScheduler1.schedule(
+     /*   jobScheduler1.schedule(
             JobInfo.Builder(
                 1001,
                 ComponentName(this, SendLogoutInstance::class.java)
@@ -76,7 +78,7 @@ class Myapp : Application(),LifeCycleDelegate {
                 .setRequiredNetworkType(JobInfo.NETWORK_TYPE_ANY)
                 .setPersisted(false)
                 .build()
-        )
+        )*/
     }
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
@@ -87,7 +89,7 @@ class Myapp : Application(),LifeCycleDelegate {
         }
       //  Log.d("LOG","LOGIN")
 
-        jobScheduler.schedule(
+       /* jobScheduler.schedule(
             JobInfo.Builder(
                 1000,
                 ComponentName(this, SendLoginInstance::class.java)
@@ -95,7 +97,7 @@ class Myapp : Application(),LifeCycleDelegate {
                 .setRequiredNetworkType(JobInfo.NETWORK_TYPE_ANY)
                 .setPersisted(false)
                 .build()
-        )    }
+        ) */   }
 
 
    fun registerLifeCycleHandler(lifecycleHandler : AppLifecycleHandler) {

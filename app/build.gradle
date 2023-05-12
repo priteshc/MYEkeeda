@@ -11,8 +11,8 @@ android {
         applicationId "student.ekeeda.com.ekeeda_student"
         minSdkVersion 21
         targetSdkVersion 30
-        versionCode 65
-        versionName "1.65"
+        versionCode 66
+        versionName "1.66"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         ndk {
             abiFilters 'arm64-v8a', 'x86_64','armeabi-v7a'
@@ -32,7 +32,7 @@ android {
         targetCompatibility JavaVersion.VERSION_1_8
     }
 
-    
+
 }
 
 dependencies {
@@ -60,6 +60,7 @@ dependencies {
     implementation 'com.facebook.android:facebook-marketing:5.0.0'
     implementation platform('com.google.firebase:firebase-bom:28.3.1')
     implementation 'com.google.firebase:firebase-analytics'
+    implementation 'com.google.android:flexbox:1.1.0'
 
 }
 

@@ -2,14 +2,22 @@ package student.ekeeda.com.ekeeda_student.HomePage;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.TargetApi;
+import android.app.Activity;
+import android.content.ClipData;
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.graphics.Bitmap;
+import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.webkit.ValueCallback;
 import android.webkit.WebChromeClient;
+import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.FrameLayout;
@@ -29,6 +37,8 @@ public class WebsiteMyview extends AppCompatActivity {
     private Boolean doubleBackToExitPressedOnce = false;
     private CustomDialog dialog;
     private PrefManager mypref;
+    private ValueCallback<Uri[]> mUploadMessage;
+    private final static int FILE_CHOOSER_RESULT_CODE = 1;
 
     /**
      * Called when the activity is first created.
@@ -49,9 +59,18 @@ public class WebsiteMyview extends AppCompatActivity {
         webView.setWebChromeClient(mWebChromeClient);
         webView.getSettings().setJavaScriptEnabled(true);
         webView.getSettings().setAppCacheEnabled(true);
-      //  webView.getSettings().setBuiltInZoomControls(true);
+        webView.getSettings().setRenderPriority(WebSettings.RenderPriority.HIGH);
+        webView.getSettings().setDomStorageEnabled(true);
+        webView.getSettings().setLoadWithOverviewMode(true);
+        webView.getSettings().setUseWideViewPort(true);
+        webView.getSettings().setAllowFileAccess(true);
+        webView.getSettings().setAllowContentAccess(true);
+        webView.getSettings().setAllowFileAccessFromFileURLs(true);
+        webView.getSettings().setAllowUniversalAccessFromFileURLs(true);
+
+        //  webView.getSettings().setBuiltInZoomControls(true);
         webView.getSettings().setSaveFormData(true);
-        webView.loadUrl("https://ekeeda.com/mobile/index?key="+mypref.getUserid()+"&id="+mypref.getUserhistoryid());
+        webView.loadUrl("https://betaapi.ekeeda.com/mobile/index?key="+mypref.getUserid()+"&id="+mypref.getUserhistoryid());
         dialog.showDialog();
     }
 
@@ -177,6 +196,14 @@ public class WebsiteMyview extends AppCompatActivity {
 
             mCustomView = null;
         }
+
+        @Override
+        public boolean onShowFileChooser(WebView webView, ValueCallback<Uri[]> filePathCallback, WebChromeClient.FileChooserParams fileChooserParams) {
+            mUploadMessage = filePathCallback;
+            openImageChooserActivity();
+            return true;
+        }
+
     }
 
     class myWebViewClient extends WebViewClient {
@@ -191,6 +218,53 @@ public class WebsiteMyview extends AppCompatActivity {
             dialog.hideDialog();
 
         }
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == FILE_CHOOSER_RESULT_CODE) {
+            if (null == mUploadMessage && null == mUploadMessage) return;
+            Uri result = data == null || resultCode != RESULT_OK ? null : data.getData();
+            if (mUploadMessage != null) {
+                onActivityResultAboveL(requestCode, resultCode, data);
+            } else if (mUploadMessage != null) {
+                Uri[] results1 = new Uri[]{Uri.parse(result.toString())};
+                mUploadMessage.onReceiveValue(results1);
+                mUploadMessage = null;
+            }
+        }
+    }
+
+    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
+    private void onActivityResultAboveL(int requestCode, int resultCode, Intent intent) {
+        if (requestCode != FILE_CHOOSER_RESULT_CODE || mUploadMessage == null)
+            return;
+        Uri[] results = null;
+        if (resultCode == Activity.RESULT_OK) {
+            if (intent != null) {
+                String dataString = intent.getDataString();
+                ClipData clipData = intent.getClipData();
+                if (clipData != null) {
+                    results = new Uri[clipData.getItemCount()];
+                    for (int i = 0; i < clipData.getItemCount(); i++) {
+                        ClipData.Item item = clipData.getItemAt(i);
+                        results[i] = item.getUri();
+                    }
+                }
+                if (dataString != null)
+                    results = new Uri[]{Uri.parse(dataString)};
+            }
+        }
+        mUploadMessage.onReceiveValue(results);
+        mUploadMessage = null;
+    }
+
+    private void openImageChooserActivity() {
+        Intent i = new Intent(Intent.ACTION_GET_CONTENT);
+        i.addCategory(Intent.CATEGORY_OPENABLE);
+        i.setType("image/*");
+        startActivityForResult(Intent.createChooser(i, "Image Chooser"), FILE_CHOOSER_RESULT_CODE);
     }
 
 }

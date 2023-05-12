@@ -11,10 +11,17 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import com.google.android.flexbox.FlexDirection
+import com.google.android.flexbox.FlexboxLayoutManager
+import com.google.android.flexbox.JustifyContent
 import kotlinx.android.synthetic.main.signup_continue.*
+import kotlinx.android.synthetic.main.signup_continue.schintpho
+import kotlinx.android.synthetic.main.signup_continue.scnext
+import kotlinx.android.synthetic.main.signup_continue1.*
 import student.ekeeda.com.ekeeda_student.HomePage.WebsiteMyview
 import student.ekeeda.com.ekeeda_student.R
 import student.ekeeda.com.ekeeda_student.customDialog.CustomDialog
+import student.ekeeda.com.ekeeda_student.model.Question3Category
 import student.ekeeda.com.ekeeda_student.model.SignupScreenModel
 import student.ekeeda.com.ekeeda_student.networking.Status
 import student.ekeeda.com.ekeeda_student.util.PrefManager
@@ -24,7 +31,7 @@ import student.ekeeda.com.ekeeda_student.viewmodel.SignupViewModel
 import java.util.*
 import kotlin.collections.ArrayList
 
-class SignupContinue : AppCompatActivity() {
+class SignupContinue1 : AppCompatActivity(),OnInterestSelect {
 
     var mobnum : String? = null
     lateinit var validation : ValidationUtils
@@ -33,6 +40,7 @@ class SignupContinue : AppCompatActivity() {
     lateinit var mypref : PrefManager
     lateinit var viewModel1 : LoginViewModel
     lateinit var signupScreenModel: SignupScreenModel
+    var interestadpater: InterestAdapter? = null
 
     var counter = 60
     val REQUEST_CODE = 1
@@ -40,39 +48,105 @@ class SignupContinue : AppCompatActivity() {
     var statename : String? = null
     val otherStrings = arrayOf("a", "b", "c")
     var years = ArrayList<String>()
-    var degree1 = ArrayList<String>()
-    var branch1 = ArrayList<String>()
+    var ques11 = ArrayList<String>()
+    var ques22 = ArrayList<String>()
+    var ques33 = ArrayList<Question3Category>()
+    var interestlist: ArrayList<String> = ArrayList()
+    var mobile: String? = null
+    var otp: String? = null
+    var fname: String? = null
+    var lname: String? = null
+    var email: String? = null
+    var password: String? = null
+    var degree: String? = null
+    var branch: String? = null
+    var passyr: String? = null
+    var colgname: String? = null
+    var interest: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        intent.extras?.let {
-            mobnum = intent.extras!!.getString("mobnum","")
-        }
-        setContentView(R.layout.signup_continue)
 
-        startTimeCounter()
+
+        intent.extras?.let {
+            signupScreenModel = intent.extras!!.getSerializable("list") as SignupScreenModel
+            mobile = intent.getStringExtra("mobile")
+            otp = intent.getStringExtra("otp")
+            fname = intent.getStringExtra("fname")
+            lname = intent.getStringExtra("lname")
+            email = intent.getStringExtra("email")
+            password = intent.getStringExtra("password")
+            degree = intent.getStringExtra("degree")
+            branch = intent.getStringExtra("branch")
+            passyr = intent.getStringExtra("passyr")
+            colgname = intent.getStringExtra("colgname")
+
+        }
+        setContentView(R.layout.signup_continue1)
+
+       // startTimeCounter()
         mypref = PrefManager(this)
         dialog = CustomDialog(this)
         validation = ValidationUtils(this)
+        interestadpater = InterestAdapter(this,this)
+
+        val layoutManager = FlexboxLayoutManager(this)
+        layoutManager.flexDirection = FlexDirection.ROW
+        layoutManager.justifyContent = JustifyContent.CENTER
+        interest_recycler.layoutManager = layoutManager
+        interest_recycler.adapter = interestadpater
+
+        signupScreenModel.que3Ans?.forEach {
+
+            var ques = Question3Category(it,false);
+            ques33.add(ques)
+        }
+
+
+        interestadpater?.setList(ques33)
+
+
 
         val thisYear: Int = Calendar.getInstance().get(Calendar.YEAR)
         for (i in 1900..thisYear) {
             years.add(Integer.toString(i))
         }
 
+        ques11 = signupScreenModel.que1Ans as ArrayList<String>
+        ques22 = signupScreenModel.que2Ans as ArrayList<String>
+
+        ques11.add(0,"Select Option")
+        ques22.add(0,"Select Option")
+        //  years.add(0,"Select Years")
+
+
+        val adapter = ArrayAdapter(this,
+            android.R.layout.simple_spinner_item, ques11
+        )
+        val adapter1 = ArrayAdapter(this,
+            android.R.layout.simple_spinner_item, ques22
+        )
+
+
+
+        ques1.adapter = adapter
+        ques2.adapter = adapter1
+
+
+
         setupViewModel()
         setupObserver()
 
-        mobnum?.let {
+      /*  mobnum?.let {
             scmobile_no.setText(mobnum)
-        }
+        }*/
 
 
 
 
 
-        Svalidation()
+       Svalidation()
     }
 
 
@@ -81,145 +155,60 @@ class SignupContinue : AppCompatActivity() {
 
         scnext.setOnClickListener {
 
-            if (validation.isValidMobile(scmobile_no.text.toString()) && !sceditfanme.text.isEmpty() && !sceditlanme.text.isEmpty() &&
-                validation.isValidEmail(sceditemilanme.text.toString()) && !sceditpass.text.isEmpty() && !sceditotp.text.isEmpty() &&
-                !clgfanme.text.isEmpty() && !degree.selectedItem.equals("Select Degree") && !branch.selectedItem.equals("Select Branch") &&
-                 !passoutyr.selectedItem.equals("Select Years")
+            if (!ques1.selectedItem.equals("Select Option") && !ques2.selectedItem.equals("Select Option") && interestlist.size == 3
             ) {
 
-                schintpho.setTextColor(Color.parseColor("#8d9091"))
-                scphoerror.visibility = View.GONE
-                schintfname.setTextColor(Color.parseColor("#8d9091"))
-                scerrorfname.visibility = View.GONE
-                schintlanme.setTextColor(Color.parseColor("#8d9091"))
-                scerrorlname.visibility = View.GONE
-                schintemailname.setTextColor(Color.parseColor("#8d9091"))
-                scerroremail.visibility = View.GONE
-                schintpass.setTextColor(Color.parseColor("#8d9091"))
-                scerrorpass.visibility = View.GONE
-                schintotp.setTextColor(Color.parseColor("#8d9091"))
-                scerrorotp.visibility = View.GONE
-                schintdegree.setTextColor(Color.parseColor("#8d9091"))
-                scerrordegree.visibility = View.GONE
-                schintbranch.setTextColor(Color.parseColor("#8d9091"))
-                scerrorbranch.visibility = View.GONE
-                schintpassoutyr.setTextColor(Color.parseColor("#8d9091"))
-                scerroryear.visibility = View.GONE
-                schintcolgname.setTextColor(Color.parseColor("#8d9091"))
-                scerrorcollegename.visibility = View.GONE
 
-                mypref.username = scmobile_no.text.toString()
+                scerrorselect.visibility = View.GONE
+                scerrorselect1.visibility = View.GONE
+                scerrorselect2.visibility = View.GONE
+
+              /*  mypref.username = scmobile_no.text.toString()
                 mypref.userpassword = sceditpass.text.toString()
+*/
+                interestlist.forEach {
+                    if(interest != null) {
+                        interest = interest + it + ","
+                    }
+                    else{
+                        interest = it+","
+                    }
+                }
 
-                val intent = Intent(this, SignupContinue1::class.java)
-                intent.putExtra("mobile",scmobile_no.text.toString())
-                intent.putExtra("otp",sceditotp.text.toString())
-                intent.putExtra("fname",sceditfanme.text.toString())
-                intent.putExtra("lname",sceditlanme.text.toString())
-                intent.putExtra("email",sceditemilanme.text.toString())
-                intent.putExtra("password",sceditpass.text.toString())
-                intent.putExtra("degree",degree.selectedItem.toString())
-                intent.putExtra("branch",branch.selectedItem.toString())
-                intent.putExtra("passyr",passoutyr.selectedItem.toString())
-                intent.putExtra("colgname",clgfanme.text.toString())
-                intent.putExtra("list", signupScreenModel)
-                startActivity(intent)
-/*
-                viewModel.Signup(scmobile_no.text.toString(),sceditemilanme.text.toString(),sceditfanme.text.toString(),
-                    sceditlanme.text.toString(),sceditpass.text.toString(),"Android",sceditotp.text.toString(),state.text.toString(),stateid)
-   */
+                Log.d("INT",interest!!);
+
+               /* mobile : String,otp:String,fname:String,lname:String,email : String,password:String,platform:String,degree:String,branch:String,
+                passoutyr: String,colgname:String,hrarbat:String,visitekeeda:String,carrerintrest:String*/
+                viewModel.Signup(mobile!!,otp!!,fname!!,lname!!,email!!,password!!,"Android",degree!!,branch!!,passyr!!,colgname!!,
+                    ques1.selectedItem.toString(),ques1.selectedItem.toString(),interest!!.substring(0,interest!!.length - 1)!!)
             }
             else {
 
-                Log.d("GGG","come")
 
-                if (!validation.isValidMobile(scmobile_no.text.toString())) {
-
-                    schintpho.setTextColor(Color.parseColor("#F31F1F"))
-                    scphoerror.visibility = View.VISIBLE
-
+                if (ques1.selectedItem.equals("Select Option")) {
+                    scerrorselect.visibility = View.VISIBLE
                 } else {
-                    schintpho.setTextColor(Color.parseColor("#8d9091"))
-                    scphoerror.visibility = View.GONE
+                    scerrorselect.visibility = View.GONE
                 }
 
-                if (sceditfanme.text.isEmpty()) {
-                    schintfname.setTextColor(Color.parseColor("#F31F1F"))
-                    scerrorfname.visibility = View.VISIBLE
+                if (ques2.selectedItem.equals("Select Option")) {
+                    scerrorselect1.visibility = View.VISIBLE
                 } else {
-                    schintfname.setTextColor(Color.parseColor("#8d9091"))
-                    scerrorfname.visibility = View.GONE
+                    scerrorselect1.visibility = View.GONE
                 }
 
-                if (sceditlanme.text.isEmpty()) {
-                    schintlanme.setTextColor(Color.parseColor("#F31F1F"))
-                    scerrorlname.visibility = View.VISIBLE
-                } else {
-                    schintlanme.setTextColor(Color.parseColor("#8d9091"))
-                    scerrorlname.visibility = View.GONE
-                }
-                if (!validation.isValidEmail(sceditemilanme.text.toString())) {
-                    schintemailname.setTextColor(Color.parseColor("#F31F1F"))
-                    scerroremail.visibility = View.VISIBLE
-                } else {
-                    schintemailname.setTextColor(Color.parseColor("#8d9091"))
-                    scerroremail.visibility = View.GONE
-                }
 
-                if (sceditpass.text.isEmpty()) {
-                    schintpass.setTextColor(Color.parseColor("#F31F1F"))
-                    scerrorpass.visibility = View.VISIBLE
+                if (interestlist.size < 3) {
+                    scerrorselect2.visibility = View.VISIBLE
                 } else {
-                    schintpass.setTextColor(Color.parseColor("#8d9091"))
-                    scerrorpass.visibility = View.GONE
-                }
-
-                if (sceditotp.text.isEmpty()) {
-                    schintotp.setTextColor(Color.parseColor("#F31F1F"))
-                    scerrorotp.visibility = View.VISIBLE
-                } else {
-                    schintotp.setTextColor(Color.parseColor("#8d9091"))
-                    scerrorotp.visibility = View.GONE
-                }
-
-                if (degree.selectedItem.equals("Select Degree")) {
-                    schintdegree.setTextColor(Color.parseColor("#F31F1F"))
-                    scerrordegree.visibility = View.VISIBLE
-                } else {
-                    schintdegree.setTextColor(Color.parseColor("#8d9091"))
-                    scerrordegree.visibility = View.GONE
-                }
-
-                if (branch.selectedItem.equals("Select Branch")) {
-                    schintbranch.setTextColor(Color.parseColor("#F31F1F"))
-                    scerrorbranch.visibility = View.VISIBLE
-                } else {
-                    schintbranch.setTextColor(Color.parseColor("#8d9091"))
-                    scerrorbranch.visibility = View.GONE
-                }
-
-                if (passoutyr.selectedItem.equals("Select Years")) {
-                    schintpassoutyr.setTextColor(Color.parseColor("#F31F1F"))
-                    scerroryear.visibility = View.VISIBLE
-                } else {
-                    schintpassoutyr.setTextColor(Color.parseColor("#8d9091"))
-                    scerroryear.visibility = View.GONE
-                }
-
-                if (clgfanme.text.isEmpty()) {
-                    schintcolgname.setTextColor(Color.parseColor("#F31F1F"))
-                    scerrorcollegename.visibility = View.VISIBLE
-                } else {
-                    schintcolgname.setTextColor(Color.parseColor("#8d9091"))
-                    scerrorcollegename.visibility = View.GONE
+                    scerrorselect2.visibility = View.GONE
                 }
             }
-            /*val intent = Intent(this, SignupContinue1::class.java)
-            intent.putExtra("list", signupScreenModel)
-            startActivity(intent)*/
+
+
         }
 
-        resend.setOnClickListener {
+       /* resend.setOnClickListener {
 
             if (validation.isValidMobile(scmobile_no.text.toString()))
                 {
@@ -232,19 +221,19 @@ class SignupContinue : AppCompatActivity() {
                 schintpho.setTextColor(Color.parseColor("#F31F1F"))
                 scphoerror.visibility = View.VISIBLE
             }
-        }
+        }*//*
 
         state.setOnClickListener {
             val intent = Intent(this, State_Screen::class.java)
             startActivityForResult(intent, REQUEST_CODE);
-        }
+        }*/
     }
 
     fun setupViewModel(){
         viewModel = ViewModelProvider(this).get(SignupViewModel::class.java)
         viewModel1 = ViewModelProvider(this).get(LoginViewModel::class.java)
 
-        viewModel1.signupData();
+       // viewModel1.signupData();
     }
 
 
@@ -325,30 +314,28 @@ class SignupContinue : AppCompatActivity() {
                 Status.SUCCESS ->{
                     dialog.hideDialog()
 
-                    signupScreenModel = it.data!!
 
-                    degree1 = it.data?.degeree as ArrayList<String>
-                    branch1 = it.data?.branch as ArrayList<String>
 
-                    degree1.add(0,"Select Degree")
-                    branch1.add(0,"Select Branch")
-                    years.add(0,"Select Years")
+                    ques11 = it.data?.que1Ans as ArrayList<String>
+                    ques22 = it.data?.que2Ans as ArrayList<String>
+
+                    ques11.add(0,"Select Option")
+                    ques22.add(0,"Select Option")
+                  //  years.add(0,"Select Years")
 
 
                     val adapter = ArrayAdapter(this,
-                        android.R.layout.simple_spinner_item, degree1
+                        android.R.layout.simple_spinner_item, ques11
                     )
                     val adapter1 = ArrayAdapter(this,
-                        android.R.layout.simple_spinner_item, branch1
+                        android.R.layout.simple_spinner_item, ques22
                     )
 
-                    val adapter2 = ArrayAdapter(this,
-                        android.R.layout.simple_spinner_item,years
-                    )
 
-                    degree.adapter = adapter
-                    branch.adapter = adapter1
-                    passoutyr.adapter = adapter2
+
+                    ques1.adapter = adapter
+                    ques2.adapter = adapter1
+
                    /* if(it.data!!.isOTPSend) {
                         Toast.makeText(this, it.data?.displayMessage, Toast.LENGTH_LONG).show()
                         startTimeCounter()
@@ -423,4 +410,17 @@ class SignupContinue : AppCompatActivity() {
         }.start()
     }
 
-    }
+    override fun onInterest(position: Int, status: Boolean, intname: String) {
+        if(status == false){
+
+            interestlist.add(intname)
+            interestadpater?.setClick(position,true)
+
+        }
+        else{
+            interestlist.remove(intname)
+            interestadpater?.setClick(position,false)
+
+        }    }
+
+}

@@ -1,9 +1,12 @@
 package student.ekeeda.com.ekeeda_student.introscreen
 
+import android.Manifest
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.ActivityCompat
 import androidx.viewpager.widget.ViewPager
 import kotlinx.android.synthetic.main.intro_main.*
 import student.ekeeda.com.ekeeda_student.LoginSignup.Login
@@ -11,14 +14,27 @@ import student.ekeeda.com.ekeeda_student.LoginSignup.SignupContinue
 import student.ekeeda.com.ekeeda_student.R
 
 class IntroActivity:AppCompatActivity()  {
+    var READ_EXTERNAL_STORAGE = 1
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.intro_main)
 
         setupViewPager(viewpager)
+
+
         viewpager.setCurrentItem(0)
         myview()
+
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+
+            ActivityCompat.requestPermissions(this,
+                arrayOf(
+                    Manifest.permission.READ_EXTERNAL_STORAGE,
+                    Manifest.permission.WRITE_EXTERNAL_STORAGE),
+                READ_EXTERNAL_STORAGE)
+
+        }
     }
 
 

@@ -109,6 +109,7 @@
             <requestFocus />
         </EditText>
     </FrameLayout>
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -120,6 +121,89 @@
             android:id="@+id/scphoerror"
             android:visibility="gone"
             />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="OTP*"
+            android:layout_marginLeft="20dp"
+            android:fontFamily="@font/regular"
+            android:id="@+id/schintotp"
+            android:layout_marginTop="10dp"
+            />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            >
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter OTP"
+            android:inputType="number"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:paddingBottom="8dp"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"
+            android:paddingTop="8dp"
+            android:layout_marginTop="8dp"
+            android:textColor="@color/colorblack"
+            android:background="@drawable/editbg"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:fontFamily="@font/regular"
+            android:id="@+id/sceditotp"
+            android:layout_weight="1"
+            />
+        <requestFocus />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_weight="2"
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="RESEND IN"
+                    android:layout_marginLeft="0dp"
+                    android:layout_marginTop="10dp"
+                    android:textColor="@color/colorPrimary"
+                    android:fontFamily="@font/nunito_extrabold"
+                    android:id="@+id/resend"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="60"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="10dp"
+                    android:textColor="@color/colorPrimary"
+                    android:fontFamily="@font/nunito_extrabold"
+                    android:id="@+id/numtext"
+                    android:textSize="@dimen/textsize"
+                    />
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Invalid OTP*"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="3dp"
+            android:fontFamily="@font/regular"
+            android:textColor="@color/colorred"
+            android:visibility="gone"
+            android:id="@+id/scerrorotp"
+
+            />
+
 
         <TextView
             android:layout_width="wrap_content"
@@ -225,6 +309,7 @@
             android:paddingEnd="8dp"
             android:paddingTop="8dp"
             android:textColor="@color/colorhint"
+            android:visibility="gone"
             android:drawableRight="@drawable/ic_baseline_arrow_drop_down_24"
             />
 
@@ -314,22 +399,114 @@
             android:id="@+id/scerrorpass"
 
             />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Degree*"
+            android:layout_marginLeft="20dp"
+            android:fontFamily="@font/regular"
+            android:id="@+id/schintdegree"
+            android:layout_marginTop="10dp"
+            />
+
+        <Spinner
+            android:id="@+id/degree"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/dropdownselector"
+            android:layout_marginTop="10dp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Invalid Degree*"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="3dp"
+            android:fontFamily="@font/regular"
+            android:textColor="@color/colorred"
+            android:visibility="gone"
+            android:id="@+id/scerrordegree"
+
+            />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="OTP*"
+            android:text="Branch*"
             android:layout_marginLeft="20dp"
             android:fontFamily="@font/regular"
-            android:id="@+id/schintotp"
+            android:id="@+id/schintbranch"
+            android:layout_marginTop="10dp"
+            />
+
+        <Spinner
+            android:id="@+id/branch"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/dropdownselector"
+            android:layout_marginTop="10dp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Invalid Branch*"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="3dp"
+            android:fontFamily="@font/regular"
+            android:textColor="@color/colorred"
+            android:visibility="gone"
+            android:id="@+id/scerrorbranch"
+
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Passout Year*"
+            android:layout_marginLeft="20dp"
+            android:fontFamily="@font/regular"
+            android:id="@+id/schintpassoutyr"
+            android:layout_marginTop="10dp"
+            />
+        <Spinner
+            android:id="@+id/passoutyr"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/dropdownselector"
+            android:layout_marginTop="10dp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Invalid Year*"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="3dp"
+            android:fontFamily="@font/regular"
+            android:textColor="@color/colorred"
+            android:visibility="gone"
+            android:id="@+id/scerroryear"
+
+            />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="College Name*"
+            android:layout_marginLeft="20dp"
+            android:fontFamily="@font/regular"
+            android:id="@+id/schintcolgname"
             android:layout_marginTop="10dp"
             />
 
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Enter OTP"
-            android:inputType="number"
+            android:hint="Enter College Name"
+            android:inputType="text"
             android:textStyle="bold"
             android:textSize="18sp"
             android:paddingBottom="8dp"
@@ -342,22 +519,22 @@
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
             android:fontFamily="@font/regular"
-            android:id="@+id/sceditotp"
+            android:id="@+id/clgfanme"
             />
         <requestFocus />
-
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Invalid OTP*"
+            android:text="Invalid College Name*"
             android:layout_marginLeft="20dp"
             android:layout_marginTop="3dp"
             android:fontFamily="@font/regular"
             android:textColor="@color/colorred"
             android:visibility="gone"
-            android:id="@+id/scerrorotp"
-
+            android:id="@+id/scerrorcollegename"
             />
+
+
 
         <Button
             android:layout_width="100dp"
@@ -384,33 +561,7 @@
             android:layout_marginRight="20dp"
             />
 
-         <LinearLayout
-             android:layout_width="match_parent"
-             android:layout_height="wrap_content"
-             android:orientation="horizontal"
-             >
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="RESEND IN"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="10dp"
-            android:textColor="@color/colorPrimary"
-            android:fontFamily="@font/nunito_extrabold"
-            android:id="@+id/resend"
-            />
-             <TextView
-                 android:layout_width="wrap_content"
-                 android:layout_height="wrap_content"
-                 android:text="60"
-                 android:layout_marginLeft="5dp"
-                 android:layout_marginTop="10dp"
-                 android:textColor="@color/colorPrimary"
-                 android:fontFamily="@font/nunito_extrabold"
-                 android:id="@+id/numtext"
-                 android:textSize="@dimen/textsize"
-                 />
-         </LinearLayout>
+
     </LinearLayout>
 
         <RelativeLayout

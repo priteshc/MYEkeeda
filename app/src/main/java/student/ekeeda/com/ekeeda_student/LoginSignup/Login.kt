@@ -7,7 +7,7 @@ import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProviders
+import androidx.lifecycle.ViewModelProvider
 import kotlinx.android.synthetic.main.loginsignup.*
 import student.ekeeda.com.ekeeda_student.HomePage.WebsiteMyview
 import student.ekeeda.com.ekeeda_student.HomePage.WebsiteView
@@ -237,6 +237,10 @@ class Login : AppCompatActivity() {
 
         snext.setOnClickListener {
 
+         /*   val intent = Intent(this, SignupContinue::class.java)
+            intent.putExtra("mobnum", "9876543567")
+            startActivity(intent)*/
+
             if (validation.isValidMobile(smobile_no.text.toString())) {
                 spherror.visibility = View.GONE
                 sphint.setTextColor(Color.parseColor("#8d9091"))
@@ -252,7 +256,7 @@ class Login : AppCompatActivity() {
     }
 
     fun setupViewModel(){
-        viewModel = ViewModelProviders.of(this).get(LoginViewModel::class.java)
+        viewModel = ViewModelProvider(this).get(LoginViewModel::class.java)
     }
 
 

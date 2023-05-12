@@ -71,7 +71,7 @@ class WebsiteView : AppCompatActivity() {
 
         }
 
-        wv_customization.loadUrl("https://ekeeda.com/mobile/index?key=${mypref.userid}")
+        wv_customization.loadUrl("https://test.ekeeda.com/mobile/index?key=${mypref.userid}")
       //  wv_customization.loadUrl("https://dev.ekeeda.com/")
 
         dialog.showDialog()
