@@ -125,32 +125,38 @@ class Login : AppCompatActivity() {
         Lnext.setOnClickListener {
 
             if (validation.isValidMobile(Lmobile_no.text.toString())) {
-                lphoerror.visibility = View.GONE
+              //  lphoerror.visibility = View.GONE
                 Lnext.visibility = View.GONE
                 Lpassview.visibility = View.VISIBLE
                 Llogin.visibility = View.VISIBLE
-                Lhintpho.setTextColor(Color.parseColor("#8d9091"))
+             //   Lhintpho.setTextColor(Color.parseColor("#8d9091"))
+                Lmobile_no.background = getDrawable(R.drawable.editbg)
 
 
             } else {
-                lphoerror.visibility = View.VISIBLE
-                Lhintpho.setTextColor(Color.parseColor("#F31F1F"))
+               // lphoerror.visibility = View.VISIBLE
+              //  Lhintpho.setTextColor(Color.parseColor("#F31F1F"))
+                Lmobile_no.background = getDrawable(R.drawable.editbg1)
+
             }
         }
 
         Enext.setOnClickListener {
 
             if (validation.isValidEmail(Eemail_id.text.toString())) {
-                Eemailerror.visibility = View.GONE
+              //  Eemailerror.visibility = View.GONE
                 Enext.visibility = View.GONE
                 Epassview.visibility = View.VISIBLE
                 Elogin.visibility = View.VISIBLE
-                Ehintemil.setTextColor(Color.parseColor("#8d9091"))
+              //  Ehintemil.setTextColor(Color.parseColor("#8d9091"))
+                Eemail_id.background = getDrawable(R.drawable.editbg)
 
 
             } else {
-                Eemailerror.visibility = View.VISIBLE
-                Ehintemil.setTextColor(Color.parseColor("#F31F1F"))
+               // Eemailerror.visibility = View.VISIBLE
+              //  Ehintemil.setTextColor(Color.parseColor("#F31F1F"))
+                Eemail_id.background = getDrawable(R.drawable.editbg1)
+
             }
 
 
@@ -161,11 +167,13 @@ class Login : AppCompatActivity() {
             if (validation.isValidMobile(Lmobile_no.text.toString()) && !Lpassword.text.isEmpty()) {
                 lphoerror.visibility = View.GONE
                 Lpasserror.visibility = View.GONE
-                Lhintpho.setTextColor(Color.parseColor("#8d9091"))
-                Lpasshint.setTextColor(Color.parseColor("#8d9091"))
+              //  Lhintpho.setTextColor(Color.parseColor("#8d9091"))
+               // Lpasshint.setTextColor(Color.parseColor("#8d9091"))
 
                 mypref.username = Lmobile_no.text.toString()
                 mypref.userpassword = Lpassword.text.toString()
+                Lmobile_no.background = getDrawable(R.drawable.editbg)
+                Lpassword.background = getDrawable(R.drawable.editbg)
 
                 viewModel.Login(Lmobile_no.text.toString(),Lpassword.text.toString(),
                     mypref.userip!!, mypref.usermac!!
@@ -173,23 +181,32 @@ class Login : AppCompatActivity() {
 
             } else if (!validation.isValidMobile(Lmobile_no.text.toString()) && Lpassword.text.isEmpty()) {
 
-                lphoerror.visibility = View.VISIBLE
-                Lpasserror.visibility = View.VISIBLE
-                Lhintpho.setTextColor(Color.parseColor("#F31F1F"))
-                Lpasshint.setTextColor(Color.parseColor("#F31F1F"))
+                //lphoerror.visibility = View.VISIBLE
+               // Lpasserror.visibility = View.VISIBLE
+             //   Lhintpho.setTextColor(Color.parseColor("#F31F1F"))
+              //  Lpasshint.setTextColor(Color.parseColor("#F31F1F"))
+                Lmobile_no.background = getDrawable(R.drawable.editbg1)
+                Lpassword.background = getDrawable(R.drawable.editbg1)
+
             } else if (validation.isValidMobile(Lmobile_no.text.toString()) && Lpassword.text.isEmpty()) {
 
-                lphoerror.visibility = View.GONE
-                Lpasserror.visibility = View.VISIBLE
-                Lhintpho.setTextColor(Color.parseColor("#8d9091"))
-                Lpasshint.setTextColor(Color.parseColor("#F31F1F"))
+               // lphoerror.visibility = View.GONE
+               // Lpasserror.visibility = View.VISIBLE
+               // Lhintpho.setTextColor(Color.parseColor("#8d9091"))
+               // Lpasshint.setTextColor(Color.parseColor("#F31F1F"))
+                Lpassword.background = getDrawable(R.drawable.editbg1)
+                Lmobile_no.background = getDrawable(R.drawable.editbg)
 
             } else if (!validation.isValidMobile(Lmobile_no.text.toString()) && !Lpassword.text.isEmpty()) {
 
-                lphoerror.visibility = View.VISIBLE
-                Lpasserror.visibility = View.GONE
-                Lhintpho.setTextColor(Color.parseColor("#F31F1F"))
-                Lpasshint.setTextColor(Color.parseColor("#8d9091"))
+               // lphoerror.visibility = View.VISIBLE
+               // Lpasserror.visibility = View.GONE
+                /*Lhintpho.setTextColor(Color.parseColor("#F31F1F"))
+                Lpasshint.setTextColor(Color.parseColor("#8d9091"))*/
+                Lmobile_no.background = getDrawable(R.drawable.editbg1)
+
+                Lpassword.background = getDrawable(R.drawable.editbg)
+                Lmobile_no.background = getDrawable(R.drawable.editbg1)
 
             }
         }
@@ -197,36 +214,45 @@ class Login : AppCompatActivity() {
         Elogin.setOnClickListener {
 
             if (validation.isValidEmail(Eemail_id.text.toString()) && !Epassword.text.isEmpty()) {
-                Eemailerror.visibility = View.GONE
+                /*Eemailerror.visibility = View.GONE
                 Eerror.visibility = View.GONE
                 Ehintemil.setTextColor(Color.parseColor("#8d9091"))
-                Epasshint.setTextColor(Color.parseColor("#8d9091"))
+                Epasshint.setTextColor(Color.parseColor("#8d9091"))*/
 
                 mypref.username = Eemail_id.text.toString()
                 mypref.userpassword = Epassword.text.toString()
+
+                Epassword.background = getDrawable(R.drawable.editbg)
+                Eemail_id.background = getDrawable(R.drawable.editbg)
 
                 viewModel.Login(Eemail_id.text.toString(),Epassword.text.toString(),mypref.userip!!, mypref.usermac!!)
 
             } else if (!validation.isValidEmail(Eemail_id.text.toString()) && Epassword.text.isEmpty()) {
 
-                Eemailerror.visibility = View.VISIBLE
-                Eerror.visibility = View.VISIBLE
-                Ehintemil.setTextColor(Color.parseColor("#F31F1F"))
-                Epasshint.setTextColor(Color.parseColor("#F31F1F"))
+              //  Eemailerror.visibility = View.VISIBLE
+              //  Eerror.visibility = View.VISIBLE
+              /*  Ehintemil.setTextColor(Color.parseColor("#F31F1F"))
+                Epasshint.setTextColor(Color.parseColor("#F31F1F"))*/
+                Epassword.background = getDrawable(R.drawable.editbg1)
+                Eemail_id.background = getDrawable(R.drawable.editbg1)
             } else if (validation.isValidEmail(Eemail_id.text.toString()) && Epassword.text.isEmpty()) {
 
-                Eemailerror.visibility = View.GONE
-                Eerror.visibility = View.VISIBLE
-                Ehintemil.setTextColor(Color.parseColor("#8d9091"))
-                Epasshint.setTextColor(Color.parseColor("#F31F1F"))
+               // Eemailerror.visibility = View.GONE
+               // Eerror.visibility = View.VISIBLE
+               /* Ehintemil.setTextColor(Color.parseColor("#8d9091"))
+                Epasshint.setTextColor(Color.parseColor("#F31F1F"))*/
+
+                Epassword.background = getDrawable(R.drawable.editbg1)
+                Eemail_id.background = getDrawable(R.drawable.editbg)
 
             } else if (!validation.isValidEmail(Eemail_id.text.toString()) && !Epassword.text.isEmpty()) {
 
-                Eemailerror.visibility = View.VISIBLE
-                Eerror.visibility = View.GONE
-                Ehintemil.setTextColor(Color.parseColor("#F31F1F"))
-                Epasshint.setTextColor(Color.parseColor("#8d9091"))
-
+              //  Eemailerror.visibility = View.VISIBLE
+              //  Eerror.visibility = View.GONE
+              /*  Ehintemil.setTextColor(Color.parseColor("#F31F1F"))
+                Epasshint.setTextColor(Color.parseColor("#8d9091"))*/
+                Epassword.background = getDrawable(R.drawable.editbg)
+                Eemail_id.background = getDrawable(R.drawable.editbg1)
             }
         }
 
@@ -242,14 +268,16 @@ class Login : AppCompatActivity() {
             startActivity(intent)*/
 
             if (validation.isValidMobile(smobile_no.text.toString())) {
-                spherror.visibility = View.GONE
-                sphint.setTextColor(Color.parseColor("#8d9091"))
+              //  spherror.visibility = View.GONE
+              //  sphint.setTextColor(Color.parseColor("#8d9091"))
+                smobile_no.background = getDrawable(R.drawable.editbg)
 
                 viewModel.Otp(smobile_no.text.toString(),2,true)
 
             } else {
-                spherror.visibility = View.VISIBLE
-                sphint.setTextColor(Color.parseColor("#F31F1F"))
+               // spherror.visibility = View.VISIBLE
+              //  sphint.setTextColor(Color.parseColor("#F31F1F"))
+                smobile_no.background = getDrawable(R.drawable.editbg1)
             }
         }
 

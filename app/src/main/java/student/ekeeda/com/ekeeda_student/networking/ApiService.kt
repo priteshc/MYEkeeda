@@ -20,7 +20,7 @@ interface ApiService {
 
 
     @FormUrlEncoded
-    @POST("Auth/Auth/Signup")
+    @POST("Auth/Signup")
     fun SignUp(@Field("Mobile") mobile:String, @Field("Email") email : String,
                @Field("FirstName") fname:String, @Field("LastName") lname : String,
                @Field("Password") pass:String, @Field("PlatformType") platform : String,
@@ -45,7 +45,7 @@ interface ApiService {
     @POST("State/StateList")
     fun getState(@Field("Mobile") mobile:String): Call<StateModel>
 
-    @GET("Auth/Auth/Signup")
+    @GET("Auth/Signup")
     fun SignupData(): Call<SignupScreenModel>
 
 }

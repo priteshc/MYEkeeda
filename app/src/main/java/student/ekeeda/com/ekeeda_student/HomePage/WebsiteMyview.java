@@ -12,6 +12,7 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -70,7 +71,8 @@ public class WebsiteMyview extends AppCompatActivity {
 
         //  webView.getSettings().setBuiltInZoomControls(true);
         webView.getSettings().setSaveFormData(true);
-        webView.loadUrl("https://betaapi.ekeeda.com/mobile/index?key="+mypref.getUserid()+"&id="+mypref.getUserhistoryid());
+        Log.d("USER:",mypref.getUserid() + "-"+mypref.getUserhistoryid());
+        webView.loadUrl("https://beta.ekeeda.com/mobile/index?key="+mypref.getUserid()+"&id="+mypref.getUserhistoryid());
         dialog.showDialog();
     }
 

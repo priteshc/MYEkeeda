@@ -186,15 +186,23 @@ class SignupContinue1 : AppCompatActivity(),OnInterestSelect {
 
 
                 if (ques1.selectedItem.equals("Select Option")) {
-                    scerrorselect.visibility = View.VISIBLE
+                  //  scerrorselect.visibility = View.VISIBLE
+                    ques1.background = getDrawable(R.drawable.dropdownselector1)
+
                 } else {
                     scerrorselect.visibility = View.GONE
+                    ques1.background = getDrawable(R.drawable.dropdownselector)
+
                 }
 
                 if (ques2.selectedItem.equals("Select Option")) {
-                    scerrorselect1.visibility = View.VISIBLE
+                   // scerrorselect1.visibility = View.VISIBLE
+                    ques2.background = getDrawable(R.drawable.dropdownselector1)
+
                 } else {
                     scerrorselect1.visibility = View.GONE
+                    ques2.background = getDrawable(R.drawable.dropdownselector)
+
                 }
 
 

@@ -24,7 +24,7 @@ class SignupViewModel : ViewModel() {
 
         signupmodel.postValue(Resource.loading(null))
 
-        val call: Call<LoginDataModel> = RetrofitBuilder.apiService1.SignUp(mobile,email,fname, lname,password,platform,otp,colgname,hrarbat,
+        val call: Call<LoginDataModel> = RetrofitBuilder.apiService.SignUp(mobile,email,fname, lname,password,platform,otp,colgname,hrarbat,
         passoutyr,visitekeeda,carrerintrest,degree,branch)
         call.enqueue(object : Callback<LoginDataModel> {
 

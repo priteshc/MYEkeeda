@@ -11,6 +11,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import kotlinx.android.synthetic.main.loginsignup.*
 import kotlinx.android.synthetic.main.signup_continue.*
 import student.ekeeda.com.ekeeda_student.HomePage.WebsiteMyview
 import student.ekeeda.com.ekeeda_student.R
@@ -135,83 +136,123 @@ class SignupContinue : AppCompatActivity() {
 
                 if (!validation.isValidMobile(scmobile_no.text.toString())) {
 
-                    schintpho.setTextColor(Color.parseColor("#F31F1F"))
-                    scphoerror.visibility = View.VISIBLE
+                  //  schintpho.setTextColor(Color.parseColor("#F31F1F"))
+                   // scphoerror.visibility = View.VISIBLE
+                    scmobile_no.background = getDrawable(R.drawable.editbg1)
+
 
                 } else {
-                    schintpho.setTextColor(Color.parseColor("#8d9091"))
+                 //   schintpho.setTextColor(Color.parseColor("#8d9091"))
                     scphoerror.visibility = View.GONE
+                    scmobile_no.background = getDrawable(R.drawable.editbg)
+
                 }
 
                 if (sceditfanme.text.isEmpty()) {
-                    schintfname.setTextColor(Color.parseColor("#F31F1F"))
-                    scerrorfname.visibility = View.VISIBLE
+                 //   schintfname.setTextColor(Color.parseColor("#F31F1F"))
+                  //  scerrorfname.visibility = View.VISIBLE
+                    sceditfanme.background = getDrawable(R.drawable.editbg1)
+
                 } else {
-                    schintfname.setTextColor(Color.parseColor("#8d9091"))
-                    scerrorfname.visibility = View.GONE
+                  //  schintfname.setTextColor(Color.parseColor("#8d9091"))
+                  //  scerrorfname.visibility = View.GONE
+                    sceditfanme.background = getDrawable(R.drawable.editbg)
+
                 }
 
                 if (sceditlanme.text.isEmpty()) {
-                    schintlanme.setTextColor(Color.parseColor("#F31F1F"))
-                    scerrorlname.visibility = View.VISIBLE
+                  //  schintlanme.setTextColor(Color.parseColor("#F31F1F"))
+                   // scerrorlname.visibility = View.VISIBLE
+                    sceditlanme.background = getDrawable(R.drawable.editbg1)
+
                 } else {
-                    schintlanme.setTextColor(Color.parseColor("#8d9091"))
+                  //  schintlanme.setTextColor(Color.parseColor("#8d9091"))
                     scerrorlname.visibility = View.GONE
+                    sceditlanme.background = getDrawable(R.drawable.editbg1)
+
                 }
                 if (!validation.isValidEmail(sceditemilanme.text.toString())) {
-                    schintemailname.setTextColor(Color.parseColor("#F31F1F"))
-                    scerroremail.visibility = View.VISIBLE
+                  //  schintemailname.setTextColor(Color.parseColor("#F31F1F"))
+                 //   scerroremail.visibility = View.VISIBLE
+                    sceditemilanme.background = getDrawable(R.drawable.editbg1)
+
                 } else {
-                    schintemailname.setTextColor(Color.parseColor("#8d9091"))
+                  //  schintemailname.setTextColor(Color.parseColor("#8d9091"))
                     scerroremail.visibility = View.GONE
+                    sceditemilanme.background = getDrawable(R.drawable.editbg)
+
                 }
 
                 if (sceditpass.text.isEmpty()) {
-                    schintpass.setTextColor(Color.parseColor("#F31F1F"))
-                    scerrorpass.visibility = View.VISIBLE
+                   // schintpass.setTextColor(Color.parseColor("#F31F1F"))
+                    //scerrorpass.visibility = View.VISIBLE
+                    sceditpass.background = getDrawable(R.drawable.editbg1)
+
                 } else {
-                    schintpass.setTextColor(Color.parseColor("#8d9091"))
+                   // schintpass.setTextColor(Color.parseColor("#8d9091"))
                     scerrorpass.visibility = View.GONE
+                    sceditpass.background = getDrawable(R.drawable.editbg)
+
                 }
 
                 if (sceditotp.text.isEmpty()) {
-                    schintotp.setTextColor(Color.parseColor("#F31F1F"))
-                    scerrorotp.visibility = View.VISIBLE
+                  //  schintotp.setTextColor(Color.parseColor("#F31F1F"))
+                   // scerrorotp.visibility = View.VISIBLE
+                    sceditotp.background = getDrawable(R.drawable.editbg1)
+
                 } else {
-                    schintotp.setTextColor(Color.parseColor("#8d9091"))
+                   // schintotp.setTextColor(Color.parseColor("#8d9091"))
                     scerrorotp.visibility = View.GONE
+                    sceditotp.background = getDrawable(R.drawable.editbg)
+
                 }
 
                 if (degree.selectedItem.equals("Select Degree")) {
-                    schintdegree.setTextColor(Color.parseColor("#F31F1F"))
-                    scerrordegree.visibility = View.VISIBLE
+                   // schintdegree.setTextColor(Color.parseColor("#F31F1F"))
+                  //  scerrordegree.visibility = View.VISIBLE
+                    degree.background = getDrawable(R.drawable.dropdownselector1)
+
                 } else {
-                    schintdegree.setTextColor(Color.parseColor("#8d9091"))
+                  //  schintdegree.setTextColor(Color.parseColor("#8d9091"))
                     scerrordegree.visibility = View.GONE
+                    degree.background = getDrawable(R.drawable.dropdownselector)
+
                 }
 
                 if (branch.selectedItem.equals("Select Branch")) {
-                    schintbranch.setTextColor(Color.parseColor("#F31F1F"))
-                    scerrorbranch.visibility = View.VISIBLE
+                  //  schintbranch.setTextColor(Color.parseColor("#F31F1F"))
+                  //  scerrorbranch.visibility = View.VISIBLE
+                    branch.background = getDrawable(R.drawable.dropdownselector1)
+
                 } else {
-                    schintbranch.setTextColor(Color.parseColor("#8d9091"))
+                   // schintbranch.setTextColor(Color.parseColor("#8d9091"))
                     scerrorbranch.visibility = View.GONE
+                    branch.background = getDrawable(R.drawable.dropdownselector1)
+
                 }
 
                 if (passoutyr.selectedItem.equals("Select Years")) {
-                    schintpassoutyr.setTextColor(Color.parseColor("#F31F1F"))
-                    scerroryear.visibility = View.VISIBLE
+                  //  schintpassoutyr.setTextColor(Color.parseColor("#F31F1F"))
+                   // scerroryear.visibility = View.VISIBLE
+                    passoutyr.background = getDrawable(R.drawable.dropdownselector1)
+
                 } else {
-                    schintpassoutyr.setTextColor(Color.parseColor("#8d9091"))
+                  //  schintpassoutyr.setTextColor(Color.parseColor("#8d9091"))
                     scerroryear.visibility = View.GONE
+                    passoutyr.background = getDrawable(R.drawable.dropdownselector)
+
                 }
 
                 if (clgfanme.text.isEmpty()) {
-                    schintcolgname.setTextColor(Color.parseColor("#F31F1F"))
-                    scerrorcollegename.visibility = View.VISIBLE
+                  //  schintcolgname.setTextColor(Color.parseColor("#F31F1F"))
+                   // scerrorcollegename.visibility = View.VISIBLE
+                    clgfanme.background = getDrawable(R.drawable.editbg1)
+
                 } else {
-                    schintcolgname.setTextColor(Color.parseColor("#8d9091"))
+                   // schintcolgname.setTextColor(Color.parseColor("#8d9091"))
                     scerrorcollegename.visibility = View.GONE
+                    clgfanme.background = getDrawable(R.drawable.editbg)
+
                 }
             }
             /*val intent = Intent(this, SignupContinue1::class.java)
@@ -223,13 +264,13 @@ class SignupContinue : AppCompatActivity() {
 
             if (validation.isValidMobile(scmobile_no.text.toString()))
                 {
-                    schintpho.setTextColor(Color.parseColor("#8d9091"))
+                   // schintpho.setTextColor(Color.parseColor("#8d9091"))
                     scphoerror.visibility = View.GONE
                     resend.isEnabled = false
                     viewModel1.Otp(scmobile_no.text.toString(),2,true)
                 }
                 else{
-                schintpho.setTextColor(Color.parseColor("#F31F1F"))
+               // schintpho.setTextColor(Color.parseColor("#F31F1F"))
                 scphoerror.visibility = View.VISIBLE
             }
         }

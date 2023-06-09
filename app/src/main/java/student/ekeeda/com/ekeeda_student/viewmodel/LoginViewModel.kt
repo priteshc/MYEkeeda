@@ -49,7 +49,7 @@ class LoginViewModel : ViewModel() {
 
         signupmodel.postValue(Resource.loading(null))
 
-        val call: Call<SignupScreenModel> = RetrofitBuilder.apiService1.SignupData()
+        val call: Call<SignupScreenModel> = RetrofitBuilder.apiService.SignupData()
         call.enqueue(object : Callback<SignupScreenModel> {
 
             override fun onResponse(call: Call<SignupScreenModel>?, response: Response<SignupScreenModel>?) {
