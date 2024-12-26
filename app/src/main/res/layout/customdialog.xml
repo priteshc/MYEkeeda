@@ -5,22 +5,33 @@
     android:background="@android:color/transparent"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <com.agrawalsuneet.dotsloader.loaders.LazyLoader
+
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/lottieLoader"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="20dp"
-        android:layout_marginTop="30dp"
-        app:lazyloader_animDur="800"
-        app:lazyloader_dotsDist="10dp"
-        app:lazyloader_dotsRadius="9dp"
-        app:lazyloader_firstDelayDur="150"
-        app:lazyloader_firstDotColor="@color/colorPrimary"
-        app:lazyloader_interpolator="@android:anim/decelerate_interpolator"
-        app:lazyloader_secondDelayDur="300"
+        app:lottie_rawRes="@raw/loading"
         android:layout_centerInParent="true"
-        app:lazyloader_secondDotColor="@color/colorPrimary"
-        app:lazyloader_thirdDotColor="@color/colorPrimary"
-        />
+      app:lottie_loop="true"
+       app:lottie_autoPlay="true" />
+
+   <!--<com.agrawalsuneet.dotsloader.loaders.LazyLoader
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:layout_margin="20dp"
+       android:layout_marginTop="30dp"
+       app:lazyloader_animDur="800"
+       app:lazyloader_dotsDist="10dp"
+       app:lazyloader_dotsRadius="9dp"
+       app:lazyloader_firstDelayDur="150"
+       app:lazyloader_firstDotColor="@color/colorPrimary"
+       app:lazyloader_interpolator="@android:anim/decelerate_interpolator"
+       app:lazyloader_secondDelayDur="300"
+       android:layout_centerInParent="true"
+       app:lazyloader_secondDotColor="@color/colorPrimary"
+       app:lazyloader_thirdDotColor="@color/colorPrimary"
+       />-->
 
 
 </RelativeLayout>

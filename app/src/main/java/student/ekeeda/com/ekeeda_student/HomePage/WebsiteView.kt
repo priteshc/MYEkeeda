@@ -4,10 +4,7 @@ import android.graphics.Bitmap
 import android.os.Bundle
 import android.os.Handler
 import android.view.KeyEvent
-import android.view.View
-import android.view.ViewGroup
 import android.webkit.*
-import android.widget.FrameLayout
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.myhome_view.*
@@ -31,7 +28,10 @@ class WebsiteView : AppCompatActivity() {
         dialog = CustomDialog(this)
 
         wv_customization.clearHistory()
-        wv_customization.getSettings().setAppCacheEnabled(false)
+        //webView.getSettings().setAppCacheEnabled(true);
+        wv_customization.settings.cacheMode = WebSettings.LOAD_DEFAULT
+
+        //  wv_customization.getSettings().setAppCacheEnabled(false)
         wv_customization.getSettings().setJavaScriptEnabled(true)
         wv_customization.getSettings().setUseWideViewPort(true);
        /* wv_customization.webChromeClient = object :WebChromeClient(){

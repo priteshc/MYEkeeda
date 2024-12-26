@@ -45,7 +45,9 @@
             android:name="com.facebook.sdk.CodelessDebugLogEnabled"
             android:value="true" />
 
-        <activity android:name=".SplashScreen.Splash">
+        <activity android:name=".SplashScreen.Splash"
+            android:exported="true"
+            >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -57,43 +59,61 @@
         <activity
             android:name=".introscreen.IntroActivity"
             android:screenOrientation="portrait"
+            android:exported="true"
+
             />
         <activity
             android:name=".LoginSignup.Login"
             android:screenOrientation="portrait"
+            android:exported="true"
+
             />
 
         <activity
             android:name=".LoginSignup.SignupContinue"
             android:screenOrientation="portrait"
+            android:exported="true"
+
             />
 
         <activity
             android:name=".LoginSignup.SignupContinue1"
             android:screenOrientation="portrait"
+            android:exported="true"
+
             />
 
         <activity
             android:name=".LoginSignup.State_Screen"
             android:screenOrientation="portrait"
+            android:exported="true"
+
             />
 
         <activity
             android:name=".HomePage.WebsiteView"
+            android:exported="true"
+
             />
 
         <activity
             android:name=".HomePage.WebsiteMyview"
             android:configChanges="orientation|keyboardHidden|screenSize"
+            android:exported="true"
+
             />
         <activity
             android:name=".forgotpassword.ForgotPassword"
             android:screenOrientation="portrait"
+            android:exported="true"
+
             />
 
         <activity
             android:name=".forgotpassword.ForgetContinue"
             android:screenOrientation="portrait"
+            android:exported="true"
+
             />
 
         <service
