@@ -109,7 +109,7 @@ class SignupContinue1 : AppCompatActivity(),OnInterestSelect {
 
 
         val thisYear: Int = Calendar.getInstance().get(Calendar.YEAR)
-        for (i in 1900..thisYear) {
+        for (i in 2000..thisYear) {
             years.add(Integer.toString(i))
         }
 

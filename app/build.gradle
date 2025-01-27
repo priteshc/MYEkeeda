@@ -10,10 +10,11 @@ android {
         applicationId "student.ekeeda.com.ekeeda_student"
         minSdkVersion 21
         targetSdkVersion 34
-        versionCode 66
-        versionName "1.66"
+        versionCode 68
+        versionName "1.68"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-
+        //key0
+        //Ekeeda@121
     }
 
     buildTypes {

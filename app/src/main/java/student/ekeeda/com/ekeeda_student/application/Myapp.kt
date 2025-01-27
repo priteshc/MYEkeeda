@@ -24,10 +24,11 @@ class Myapp : Application(),LifeCycleDelegate {
 
     companion object{
       //  var BASE_URL:String="https://testapi.ekeeda.com/api/Auth/"
-      //  var BASE_URL:String="https://api.ekeeda.com/api/Auth/"
+        var BASE_URL:String="https://api.ekeeda.com/api/v2/"
+        var BASE_URL1:String= "http://api.ekeeda.com/api/"
      // var BASE_URL:String="https://testapi.ekeeda.com/api/"
-        var BASE_URL:String= "https://betaapi.ekeeda.com/api/v2/"
-        var BASE_URL1:String= "https://betaapi.ekeeda.com/api/"
+     //   var BASE_URL:String= "http://betaapi.ekeeda.com/api/v2/"
+     //   var BASE_URL1:String= "http://betaapi.ekeeda.com/api/"
 
         lateinit var instance: Myapp
            // private set

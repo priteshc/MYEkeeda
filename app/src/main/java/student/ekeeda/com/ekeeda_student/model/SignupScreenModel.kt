@@ -18,15 +18,15 @@ class SignupScreenModel : Serializable {
     @Expose
     var allQuestions: List<String>? = null
 
-    @SerializedName("que1Ans")
+    @SerializedName("how did you hear about us?")
     @Expose
     var que1Ans: List<String>? = null
 
-    @SerializedName("que2Ans")
+    @SerializedName("Why did you visit ekeeda?")
     @Expose
     var que2Ans: List<String>? = null
 
-    @SerializedName("que3Ans")
+    @SerializedName("Course you are interested in ? ")
     @Expose
     var que3Ans: List<String>? = null
 
